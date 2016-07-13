@@ -1,0 +1,57 @@
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin size($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*10}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+
+}
+
+@mixin bp($class) {
+
+  // >= 544px
+  @if $class == xs {
+    @media screen and (min-width: 22em) { @content; }
+  }
+
+  // >= 544px
+  @if $class == sm {
+    @media screen and (min-width: 34em) { @content; }
+  }
+  // >= 768px
+  @if $class == md {
+    @media screen and (min-width: 48em) { @content; }
+  }
+  // >= 992px
+  @if $class == lg {
+    @media screen and (min-width: 62em) { @content; }
+  }
+
+  // >=1200px
+  @if $class == xl {
+    @media screen and (min-width: 75em) { @content; }
+  }
+}

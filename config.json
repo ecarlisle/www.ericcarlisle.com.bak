@@ -1,0 +1,60 @@
+{
+  "baseurl": "http://www.ericcarlisle.com/",
+  "languageCode": "en-US",
+  "theme": "podium",
+  "title": "Eric Carlisle : UI Developer, UX Designer",
+  "menu": {
+    "main": [
+      {
+        "name": "Home",
+        "url": "/",
+        "weight": 1
+      },
+      {
+        "name": "About Me",
+        "url": "/about",
+        "weight": 2
+      },
+      {
+        "name": "Presentations",
+        "url": "/",
+        "weight": 3
+      },
+      {
+        "name": "Projects",
+        "url": "/",
+        "weight": 4
+      },
+      {
+        "name": "Contact",
+        "url": "/",
+        "weight": 5
+      }
+    ]
+  },
+  "sitemap": {
+    "changefreq": "weekly",
+    "priority": "0.5",
+    "filename": "sitemap.xml"
+  },
+  "params": {
+    "headertitle": {
+      "title": "Eric Carlisle",
+      "delimiter": ":",
+      "subtitle": "UI Developer, UX Designer"
+    },
+    "profileimage": "/assets/img/profile.png",
+    "profilename": "Eric Carlisle",
+    "profiletitle": "UI Developer, UX Designer",
+    "locale": "en-US",
+    "social": {
+      "facebook": {
+        "admins": "eric.carlisle",
+        "appid": "616445445121972"
+      },
+      "twitter": {
+        "username": "eric_carlisle"
+      }
+    }
+  }
+}

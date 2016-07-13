@@ -1,0 +1,27 @@
+.pad-top1 { @include size(padding-top, 1); }
+.pad-top2 { @include size(padding-top, 2); }
+.pad-top3 { @include size(padding-top, 3); }
+.pad-right1 { @include size(padding-right, 1); }
+.pad-right2 { @include size(padding-right, 2); }
+.pad-right3 { @include size(padding-right, 3); }
+.pad-bottom1 { @include size(padding-bottom, 1); }
+.pad-bottom2 { @include size(padding-bottom, 2); }
+.pad-bottom3 { @include size(padding-bottom, 3); }
+.pad-left1 { @include size(padding-left, 1); }
+.pad-left2 { @include size(padding-left, 2); }
+.pad-left3 { @include size(padding-left, 3); }
+
+.mar-top1 { @include size(margin-top, 1); }
+.mar-top2 { @include size(margin-top, 2); }
+.mar-top3 { @include size(margin-top, 3); }
+.mar-right1 { @include size(margin-right, 1); }
+.mar-right2 { @include size(margin-right, 2); }
+.mar-right3 { @include size(margin-right, 3); }
+.mar-bottom1 { @include size(margin-bottom, 1); }
+.mar-bottom2 { @include size(margin-bottom, 2); }
+.mar-bottom3 { @include size(margin-bottom, 3); }
+.mar-left1 { @include size(margin-left, 1); }
+.mar-left2 { @include size(margin-left, 2); }
+.mar-left3 { @include size(margin-left, 3); }
+
+

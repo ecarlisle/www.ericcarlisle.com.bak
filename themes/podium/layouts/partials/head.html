@@ -1,0 +1,56 @@
+{{ $appleIconSizes := (slice 57 72 76 114 120 144 152 180) }}
+
+<head>
+
+  <!-- General Metadata -->
+  <title>{{ .Title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Params.description }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}/index.xml">
+
+  {{ if .Site.Params.social.twitter }}
+  <!-- Twitter Metadata -->
+  <meta name="twitter:card" content="{{ .Params.social.twitter.cardtype }}">
+  <meta name="twitter:site" content="{{ .Site.Params.social.twitter.username }}">
+  <meta name="twitter:creator" content="{{ .Site.Params.social.twitter.username }}">
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ .Params.description }}">
+  <meta name="twitter:image" content="{{ .Params.largeimage }}">
+  <meta name="twitter:url" property="og:url" content="{{ .Permalink }}">
+  {{ end }}
+
+  {{ if .Site.Params.social.facebook }}
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:image" content="{{ .Params.largeimage }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:type" content="{{ .Params.social.facebook.pagetype }}" />
+  <meta property="og:site_name" content="{{ .Title }}" />
+  <meta property="og:locale" content="{{ .Site.Params.locale }}" />
+  <meta property="fb:app_id" content="{{ .Site.Params.social.facebook.appid }}" />
+  <meta property="fb:admins" content="{{ .Site.Params.social.facebook.admins }}" />
+  {{ end }}
+
+  <!-- RSS Link -->
+  {{ if .RSSlink }}
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
+
+  <!-- Front End Assets -->
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/css/main.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/assets/js/main.js">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}/apple-touch-icon.png" />
+  {{ range $appleIconSizes }}
+ <link rel="apple-touch-icon" sizes="{{ . }}x{{ . }}" href="/apple-touch-icon-{{ . }}x{{ . }}.png" />
+  {{ end }}
+
+</head>

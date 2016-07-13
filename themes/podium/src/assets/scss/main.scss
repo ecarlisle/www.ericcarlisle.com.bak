@@ -1,0 +1,295 @@
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_icons';
+@import '_utility';
+
+// --- Global Selectors --- //
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $light-gray;
+  color: $black;
+  @include size(font-size, 3);
+  font-family: $main-font-stack;
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $header-font-stack;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+h1 {
+  @include size(font-size, 3);
+  @include size(margin, 1, 0);
+}
+
+h2 {
+  @include size(font-size, 2);
+  @include size(margin, 1, 0);
+
+  @include bp(xs) {
+    @include size(font-size, 2.2);
+  }
+  @include bp(sm) {
+    @include size(font-size, 2.4);
+  }
+  @include bp(md) {
+    @include size(font-size, 2.6);
+  }
+  @include bp(lg) {
+    @include size(font-size, 2.8);
+  }
+  @include bp(xl) {
+  @include size(font-size, 3);
+    color: #000;
+  }
+
+}
+
+header, footer {
+  display: flex;
+
+  a, a:active, a:visited, a:hover {
+    color: $white;
+  }
+}
+
+header {
+  align-items: center;
+  background: $blue;
+  border-bottom: solid 1px $dark-blue;
+  color: $white;
+  line-height: 1;
+  font-family: $banner-font-stack;
+  justify-content: space-between;
+  @include size(padding, 1, 0.5, 1, 1);
+//  font-weight: bold;
+
+  .title {
+    div {
+     @include size(padding, 0, 0.3);
+    }
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+  }
+
+  .mobile-menu {
+    @include size(height, 2);
+    @include size(width, 2);
+    fill: white;
+    @include bp (md) {
+      display: none;
+    }
+  }
+
+  .title {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    @include size(font-size, 1.6);
+
+    .main {
+      @include size(font-size, 4);
+    }
+
+    .delimiter {
+      display: none;
+      @include bp (xs) {
+        display: inline-block;
+      }
+      @include size(font-size, 3.6);
+    }
+
+    .sub {
+      display: none;
+      @include bp (xs) {
+        display: inline-block;
+        @include size(font-size, 2.8);
+      }
+    }
+
+  }
+
+  nav {
+
+    display: none;
+    @include size(font-size, 1);
+    justify-content: flex-end;
+
+    ul {
+      list-style-type: none;
+      @include size(margin, 0);
+      @include size(padding, 0);
+
+      li {
+        display: inline-block;
+        @include size(margin, 0, 0, 0, 2);
+      }
+    }
+  }
+}
+
+main {
+  @include size(font-size, 1.5);
+  line-height: 1.6;
+  @include bp(md) {
+    @include size(font-size, 1.6);
+  };
+  @include bp(lg) {
+    @include size(font-size, 1.7);
+  };
+  @include bp(xl) {
+    @include size(font-size, 1.8);
+    line-height: 1.6;
+  };
+
+  @include bp(lg) {
+    display: block;
+    width: 75%;
+  }
+  @include bp(xl) {
+    width: 60%;
+  }
+
+  @include size(padding, 0, 1);
+}
+
+aside {
+  display: none;
+  font-family: $main-font-stack;
+  @include size(font-size, 1.6);
+  line-height: 1.5;
+}
+
+aside.left {
+  display: none;
+  @include size(padding, 0, 0, 0, 1);
+  width: 20%;
+
+  @include bp(xl) {
+    display: block;
+  }
+}
+
+aside.right {
+  @include size(padding, 0, 1, 0, 0);
+  @include bp(lg) {
+    display: block;
+    width: 25%;
+  }
+  @include bp(xl) {
+    width: 20%;
+  }
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  @include size(margin, 0, 0, 1);
+}
+
+.container {
+  display: flex;
+  @include size(padding, 1, 0);
+}
+
+.card {
+  background: $white;
+  border: solid 1px #ddd;
+  @include size(padding, 1);
+  @include size(border-radius, 0.3);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+
+}
+
+.profile {
+  text-align: center;
+
+  .img {
+    display: inline-block;
+    width: 100%;
+    border: solid 1px $black;
+  }
+
+  .name {
+    font-weight: bold;
+    @include size(font-size, 1.8);
+    @include size(margin, 0.7, 0, 0);
+  }
+
+  .title {
+    font-style: italic;
+    margin: 0;
+    @include size(font-size, 1.6);
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-around;
+    @include size(margin-top, 3);
+    svg {
+      @include size(height, 3);
+      @include size(width, 3);
+      @include size(margin, 0.5);
+    }
+  }
+}
+
+.profile-image-sm img {
+  border: solid 1px $black;
+  @include size(height, 5);
+  @include size(width, 5);
+  display: inline-block;
+  @include bp(xl) {
+    display: none;
+  }
+}
+
+#blogroll {
+  .card {
+    @include size(padding, 1, 2);
+  }
+
+  .metadata {
+
+    color: $gray;
+    display: flex;
+    flex-direction: column;
+    @include bp(md) {
+      flex-direction: row;
+    }
+    @include size(font-size, 1.6);
+
+
+    align-items: flex-start;
+    @include size(font-size, 1.4);
+    @include size(margin, 0, 0, 1);
+
+    div {
+      @include size(margin, 0, 2, 0, 0);
+    }
+  }
+}
+
