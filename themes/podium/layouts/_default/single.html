@@ -2,8 +2,50 @@
   {{ partial "head" . }}
   <body>
     {{ partial "header" . }}
-
-
+    <div class="container">
+    <aside class="left">
+      {{ partial "profile" . }}
+    </aside>
+    <main id="blogroll">
+      <article class="card">
+        <h2>{{ .Title }}</h2>
+        <div class="metadata">
+          {{ if .Date }}
+          <div>
+            <span class="blogroll-icon calendar-icon">&nbsp;</span>
+            <a href="#">
+              {{ dateFormat "Monday Jan 2, 2000" .Date }}
+            </a>
+          </div>
+          {{ end }}
+          {{ if .Params.categories }}
+          <div>
+            <span class="blogroll-icon folder-icon">&nbsp;</span>
+            <a href="#">
+              {{ delimit .Params.categories ", " }}
+            </a>
+          </div>
+          {{ end }}
+          {{ if .Params.tags }}
+          <div>
+            <span class="blogroll-icon tag-icon">&nbsp;</span>
+            <a href="#">
+              {{ delimit .Params.tags ", " }}
+            </a>
+          </div>
+          {{ end }}
+        </div>
+        <p>
+          {{ .Content }}
+        </p>
+      </article>
+    </main>
+    <aside class="right">
+      <section class="card">
+      ...
+      </section>
+    </aside>
+    </div>
     {{ partial "footer" . }}
   </body>
 </html>

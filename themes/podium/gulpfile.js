@@ -31,6 +31,8 @@ gulp.task('clean', function(){
 gulp.task('styles', function() {
   return gulp.src([
     'node_modules/normalize-css/normalize.css',
+    'node_modules/featherlight/src/featherlight.css',
+    'node_modules/featherlight/src/featherlight.gallery.css',
     'src/assets/scss/main.scss'
   ])
 //  .pipe(sourcemaps.init())
@@ -40,6 +42,8 @@ gulp.task('styles', function() {
   .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
   .pipe(order([
     'normalize.css',
+    'featherlight.css',
+    'featherlight.gallery.css',
     'main.scss'
   ]))
   .pipe(concat('main.css'))
@@ -67,13 +71,17 @@ gulp.task('scripts', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(addsrc([
-        'node_modules/jquery/dist/jquery.js'
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/featherlight/src/featherlight.js',
+        'node_modules/featherlight/src/featherlight.gallery.js'
       ]))
     .pipe(debug({
       title: 'Scripts'
     }))
     .pipe(order([
       'jquery.js',
+      'featherlight.js',
+      'featherlight.gallery.js',
       'main.js'
     ]))
     .pipe(concat('main.js'))
